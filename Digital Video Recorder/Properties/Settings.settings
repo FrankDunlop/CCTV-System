@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DVR.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DeviceID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SnapshotsPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\DVR\Snapshots\</Value>
+    </Setting>
+    <Setting Name="ClipsPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\DVR\Clips\</Value>
+    </Setting>
+    <Setting Name="LogPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\DVR\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

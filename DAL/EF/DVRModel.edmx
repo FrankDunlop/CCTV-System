@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DVRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="DVRModelStoreContainer">
+    <EntitySet Name="CamSettings" EntityType="DVRModel.Store.CamSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logs" EntityType="DVRModel.Store.Logs" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CamSettings">
+    <Key>
+      <PropertyRef Name="CamNum" />
+    </Key>
+    <Property Name="CamNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CamName" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="BlackTest" Type="bit" Nullable="false" />
+    <Property Name="TextBottom" Type="bit" Nullable="false" />
+    <Property Name="LowRes" Type="bit" Nullable="true" />
+    <Property Name="MotionDetectEnabled" Type="bit" Nullable="false" />
+    <Property Name="RecOnMotion" Type="bit" Nullable="false" />
+    <Property Name="RecSeconds" Type="int" Nullable="false" />
+    <Property Name="Sensitivity" Type="int" Nullable="false" />
+    <Property Name="PrivacyEnabled" Type="bit" Nullable="false" />
+    <Property Name="PrivacySelected" Type="bit" Nullable="false" />
+    <Property Name="ShowTimeDate" Type="bit" Nullable="false" />
+    <Property Name="FPS" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DVRModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="DVREntities">
+          <EntitySet Name="CamSettings" EntityType="DVRModel.CamSetting" />
+          <EntitySet Name="Logs" EntityType="DVRModel.Log" />
+        </EntityContainer>
+        <EntityType Name="CamSetting">
+          <Key>
+            <PropertyRef Name="CamNum" />
+          </Key>
+          <Property Name="CamNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CamName" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="BlackTest" Type="Boolean" Nullable="false" />
+          <Property Name="TextBottom" Type="Boolean" Nullable="false" />
+          <Property Name="LowRes" Type="Boolean" />
+          <Property Name="MotionDetectEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="RecOnMotion" Type="Boolean" Nullable="false" />
+          <Property Name="RecSeconds" Type="Int32" Nullable="false" />
+          <Property Name="Sensitivity" Type="Int32" Nullable="false" />
+          <Property Name="PrivacyEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="PrivacySelected" Type="Boolean" Nullable="false" />
+          <Property Name="ShowTimeDate" Type="Boolean" Nullable="false" />
+          <Property Name="FPS" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DVRModelStoreContainer" CdmEntityContainer="DVREntities">
+    <EntitySetMapping Name="CamSettings">
+      <EntityTypeMapping TypeName="IsTypeOf(DVRModel.CamSetting)">
+        <MappingFragment StoreEntitySet="CamSettings">
+          <ScalarProperty Name="CamNum" ColumnName="CamNum" />
+          <ScalarProperty Name="CamName" ColumnName="CamName" />
+          <ScalarProperty Name="BlackTest" ColumnName="BlackTest" />
+          <ScalarProperty Name="TextBottom" ColumnName="TextBottom" />
+          <ScalarProperty Name="LowRes" ColumnName="LowRes" />
+          <ScalarProperty Name="MotionDetectEnabled" ColumnName="MotionDetectEnabled" />
+          <ScalarProperty Name="RecOnMotion" ColumnName="RecOnMotion" />
+          <ScalarProperty Name="RecSeconds" ColumnName="RecSeconds" />
+          <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+          <ScalarProperty Name="PrivacyEnabled" ColumnName="PrivacyEnabled" />
+          <ScalarProperty Name="PrivacySelected" ColumnName="PrivacySelected" />
+          <ScalarProperty Name="ShowTimeDate" ColumnName="ShowTimeDate" />
+          <ScalarProperty Name="FPS" ColumnName="FPS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="IsTypeOf(DVRModel.Log)">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DVRModel">
+        <EntityTypeShape EntityType="DVRModel.CamSetting" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="DVRModel.Log" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
